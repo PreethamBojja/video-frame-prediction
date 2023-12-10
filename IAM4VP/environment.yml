@@ -1,0 +1,16 @@
+name: IAM4VP
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy
+  - pip
+  - python
+  - pytorch
+  - pip:
+    - tqdm
+    - scikit-image
+    - einops
+    - timm
+prefix: /opt/anaconda3/envs/iam4vp

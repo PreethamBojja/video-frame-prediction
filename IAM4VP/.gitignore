@@ -1,0 +1,8 @@
+__pycache__
+results/
+*.npy
+*.npz
+*.gz
+*.png
+*.pyc
+.DS_Store
