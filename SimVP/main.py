@@ -1,5 +1,6 @@
 import argparse
 from exp import Exp
+from segformer_predict import *
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -23,6 +24,7 @@ def create_parser():
     parser.add_argument('--is_train',default=True, type=bool)
     parser.add_argument('--predict',default=False, type=bool)
     parser.add_argument('--model_path', default='./outputs/simvp/checkpoint.pth', type=str)
+    parser.add_argument('--model2_path', default='./outputs/simvp/segformer.pt', type=str)
 
     # model parameters
     parser.add_argument('--in_shape', default=[11, 3, 160, 240], type=int,nargs='*')  

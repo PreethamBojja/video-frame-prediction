@@ -13,7 +13,7 @@ class SegmentationDataSet(Dataset):
 
     def __init__(self, args,transform=None):
 
-        self.stored_images_path=args.res_dir+'/Debug/results/Debug/sv/last_frames.npy'
+        self.stored_images_path=args.res_dir+'/simvp/predictions/last_frames.npy'
 
         print("last frames stored path::",self.stored_images_path)
 
@@ -62,6 +62,6 @@ def Segformer_Module(args):
 
     print("After segmentation shape", numpy_y_pred_masks.shape)
 
-    np.save(args.res_dir+'/numpy_y_pred_masks.npy',numpy_y_pred_masks)
+    np.save(args.res_dir+'/pred_masks.npy',numpy_y_pred_masks)
     print("segmentation done successfully")
 

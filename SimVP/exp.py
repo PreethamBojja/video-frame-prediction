@@ -9,7 +9,7 @@ from model import SimVP
 from tqdm import tqdm
 from API import *
 from utils import *
-
+from segformer_pipeline import *
 
 class Exp:
     def __init__(self, args):
@@ -186,3 +186,5 @@ class Exp:
         np.save(osp.join(folder_path, 'inputs.npy'),inputs)
         np.save(osp.join(folder_path, 'preds.npy'),preds)
         np.save(osp.join(folder_path, 'last_frames.npy'),last_frames)
+        
+        Segformer_Module(args)

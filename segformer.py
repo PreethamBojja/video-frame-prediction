@@ -322,8 +322,8 @@ class SegmentationDataSet(Dataset):
 
         return img, mask
 
-train_set_path = 'drive/MyDrive/train/video_' #Change this to your train set path
-val_set_path = 'drive/MyDrive/val/video_' #Change this to your validation path
+train_set_path = '/scratch/sb9509/data/dataset/train/video_' #Change this to your train set path
+val_set_path = '/scratch/sb9509/data/dataset/val/video_' #Change this to your validation path
 
 train_data_dir = [train_set_path + str(i) for i in range(0, 1000)]
 train_dataset = SegmentationDataSet(train_data_dir, None)
@@ -337,7 +337,7 @@ model = segformer.to(device)
 best_model = None
 
 LEARNING_RATE = 1e-4
-num_epochs = 20
+num_epochs = 1
 max_patience = 3
 epochs_no_improve = 0
 early_stop = False
@@ -460,7 +460,7 @@ for epoch in range(num_epochs):
 
     if avg_val_loss < last_val_loss:
         best_model = model
-        torch.save(best_model, 'segformer.pt')
+        torch.save(best_model, '/scratch/sb9509/video-frame-prediction/SimVP/outputs/simvp/segformer.pt')
         last_val_loss = avg_val_loss
         epochs_no_improve = 0
     else:
@@ -469,4 +469,3 @@ for epoch in range(num_epochs):
     if epochs_no_improve > max_patience and epoch > 10:
         early_stop = True
         print("Early Stopping")
-
