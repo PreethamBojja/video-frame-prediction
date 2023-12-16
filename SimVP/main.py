@@ -48,8 +48,8 @@ if __name__ == '__main__':
         print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>  start training <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
         exp.train(args)
         print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  end training <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
-
-    exp.config['is_train'] = False
-    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  start prediction <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
-    exp.predict(args)
-    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  end prediction <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+    else:
+        exp.config['is_train'] = False
+        print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  start prediction <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+        exp.predict(args)
+        print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  end prediction <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')

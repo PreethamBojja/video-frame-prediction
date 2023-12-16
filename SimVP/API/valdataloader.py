@@ -11,7 +11,7 @@ class MovingObjectDataSet(data.Dataset):
     def __init__(self, root, n_frames_input=11, n_frames_output=11):
         super(MovingObjectDataSet, self).__init__()
 
-        root = os.path.join(root, 'test_labeled')
+        root = os.path.join(root, 'val')
         labelled_dirs = [video for video in os.listdir(root) if os.path.splitext(video)[1] != '.DS_Store']
         self.videos = [os.path.join(root, video) + '/' for video in labelled_dirs]
         
@@ -41,6 +41,5 @@ def load_data(batch_size, val_batch_size,data_root, num_workers):
 
     whole_data = MovingObjectDataSet(root=data_root, n_frames_input=11, n_frames_output=11)
     val_loader = DataLoader(whole_data, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True)
-
     mean, std = 0, 1
     return val_loader, mean, std

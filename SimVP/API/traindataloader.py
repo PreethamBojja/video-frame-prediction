@@ -11,7 +11,7 @@ class MovingObjectDataSet(data.Dataset):
     def __init__(self, root, n_frames_input=11, n_frames_output=11):
         super(MovingObjectDataSet, self).__init__()
         
-        root = os.path.join(root, 'test_unlabeled')
+        root = os.path.join(root, 'unlabeled')
         unlabeled = [video for video in os.listdir(root) if os.path.splitext(video)[1] != '.DS_Store']
         self.videos = [os.path.join(root, video) + '/' for video in unlabeled]
 
@@ -46,7 +46,6 @@ def load_data(batch_size, val_batch_size, data_root, num_workers):
     val_size = int(0.05 * len(data))
 
     train_data, val_data = random_split(data, [train_size, val_size])
-    
     train_loader = DataLoader(train_data, batch_size=batch_size, shuffle=True, num_workers=num_workers, pin_memory=True)
     val_loader = DataLoader(val_data, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True)
 

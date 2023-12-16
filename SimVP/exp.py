@@ -21,8 +21,11 @@ class Exp:
         self._preparation()
         print_log(output_namespace(self.args))
 
-        self._get_data()
-        self._select_optimizer()
+        if not self.args.predict:
+            self._get_data()
+            self._select_optimizer()
+        else:
+            self._get_val_data()
         self._select_criterion()
 
     def _acquire_device(self):
@@ -57,7 +60,10 @@ class Exp:
         logging.basicConfig(level=logging.INFO, filename=osp.join(self.path, 'log.log'),
                             filemode='a', format='%(asctime)s - %(message)s')
         # prepare data
-        self._get_data()
+        if self.args.predict:
+            self._get_val_data()
+        else:
+            self._get_data()
         # build the model
         self._build_model()
 
