@@ -11,4 +11,10 @@ dependencies:
   - pip:
     - tqdm
     - scikit-image
+    - torchmetrics
+    - einops
+    - matplotlib
+    - pillow
+    - torchvision
+    - typing
 prefix: /opt/anaconda3/envs/simvp
