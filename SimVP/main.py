@@ -35,7 +35,7 @@ def create_parser():
     parser.add_argument('--groups', default=4, type=int)
 
     # Training parameters
-    parser.add_argument('--epochs', default=5, type=int)
+    parser.add_argument('--epochs', default=25, type=int)
     parser.add_argument('--log_step', default=1, type=int)
     parser.add_argument('--lr', default=0.0001, type=float, help='Learning rate')
     return parser
