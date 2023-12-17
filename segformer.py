@@ -337,7 +337,7 @@ model = segformer.to(device)
 best_model = None
 
 LEARNING_RATE = 1e-4
-num_epochs = 1
+num_epochs = 20
 max_patience = 3
 epochs_no_improve = 0
 early_stop = False
